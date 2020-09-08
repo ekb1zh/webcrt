@@ -1,0 +1,80 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+
+
+/* Mobile first */
+
+
+
+
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 3vw;
+  padding: 20px 5vw;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  /* flex: 1 1 200px; */
+  min-width: 0;
+  /* ??? */
+
+  box-shadow: 0 0 1.5vw 0 rgba(209,209,209,1);
+  border: solid 1px transparent;
+  border-radius: 10px;
+}
+
+.card > .photo {
+  width: 100%;
+  height: auto;
+}
+
+
+.card>div {
+  padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
