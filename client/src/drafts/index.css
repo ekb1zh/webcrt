@@ -13,68 +13,109 @@
 
 body {
   font-family: 'Ubuntu', sans-serif;
+  color: rgb(50, 50, 50);
 }
 
 
 
 
+header, footer {
+  text-align: center;
+  font-size: calc(1em + 2vw);
+  font-weight: 500;
+  padding: 2vmin 0;
+  background-color: white;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+}
 
-/* Mobile first */
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 
-
-
-
-
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4vw 6vw;
+}
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 3vw;
-  padding: 20px 5vw;
+  gap: 1.7em;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  /* flex: 1 1 200px; */
-  min-width: 0;
-  /* ??? */
-
-  box-shadow: 0 0 1.5vw 0 rgba(209,209,209,1);
-  border: solid 1px transparent;
-  border-radius: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
 }
 
-.card > .photo {
+.card>.images {
+  display: flex;
+  position: relative;
+}
+
+.card>.images>.photo {
   width: 100%;
   height: auto;
+  border-radius: 5px 5px 0 0;
 }
 
-
-.card>div {
-  padding: 20px;
+.card>.images>.like {
+  position: absolute;
+  height: auto;
+  padding: 3%;
+  border-radius: 50%;
+  width: 15%;
+  background-color: rgb(186 186 186 / 74%);
+  bottom: 3%;
+  right: 3%;
+  fill: white;
+  opacity: 0.7;
 }
 
+.card>.images>.like:hover {
+  opacity: 0.9;
+}
 
+.card>.images>.like:active {
+  opacity: 1;
+}
 
+.card>.info {
+  padding: 1.2em;
+}
 
+.card>.info>* {
+  margin-top: 0.4em;
+}
 
+.card>.info>:first-child {
+  margin-top: 0;
+}
 
+.more {
+  font-size: 1.3em;
+  font-family: 'Ubuntu', sans-serif;
+  color: inherit;
+  width: 60%;
+  padding: 0.5em 0;
+  margin: 6vmin 0;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ededed;
+  border: solid 1px transparent;
+}
 
+.more:active {
+  opacity: 0.8;
+}
 
-
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+.more:hover {
+  border: solid 1px #bcbcbc;
+}
