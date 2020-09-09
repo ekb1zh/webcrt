@@ -15,21 +15,16 @@ const App: React.FC = () => {
         if (res.ok) return res.json();
         else throw new Error(`Fetch error with status: ${res.status}`)
       })
-      .then(res => setEntities(prev => {
-        const newEntities = [...prev];
-        newEntities.push(...res.response);
-        return newEntities;
-      }))
+      .then(res => setEntities(prev => [...prev, ...res.response]))
       .catch(err => console.error(err));
   }
 
-  useEffect(
-    () => fetchMoreEntities(SERVER_URL)
-    , []);
+  useEffect(() => fetchMoreEntities(SERVER_URL), []);
 
   const memoizedCards = useMemo(
-    () => entities.map(entity => <Card entity={entity} />)
-    , [entities]);
+    () => entities.map(entity => <Card key={entity.id} entity={entity} />),
+    [entities]
+  );
 
   return (
     <>

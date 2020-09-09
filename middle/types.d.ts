@@ -6,6 +6,7 @@ export type Entity = {
   type: string,
   id: string,
   attributes: {
+    photo: string,
     title: string,
     rooms: number,
     address: {
