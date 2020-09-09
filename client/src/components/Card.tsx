@@ -24,7 +24,6 @@ const Card: React.FC<{ entity: T.Entity }> = (props) => {
       attributes: {
         first_name,
         last_name,
-        middle_name,
       }
     }
   } = props.entity;
@@ -47,7 +46,7 @@ const Card: React.FC<{ entity: T.Entity }> = (props) => {
       <div className="info">
         <h3 className="title">{title}</h3>
         <p className="rooms">Кол-во комнат: {rooms}</p>
-        <p className="address">Адрес: {city}, {street}, {house}, {room}</p>
+        <p className="address">Адрес: {city}, {street}, {house}, кв. {room}</p>
         <p className="area">Площадь: {area} {unit}</p>
         <hr className="separator" />
         <h4 className="contacts-header">Контактная информация:</h4>

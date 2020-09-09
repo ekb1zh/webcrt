@@ -8,15 +8,18 @@ const SERVER_URL = 'https://script.google.com/macros/s/AKfycbw-DQLQ0Y-N0h2CW78nj
 const App: React.FC = () => {
 
   const [entities, setEntities] = useState([] as T.Data['response']);
+  const [isLoading, setIsLoading] = useState(false);
 
   function fetchMoreEntities<T extends T.Data = T.Data>(url: string) {
+    setIsLoading(true);
     fetch(url)
       .then<T>(res => {
         if (res.ok) return res.json();
         else throw new Error(`Fetch error with status: ${res.status}`)
       })
       .then(res => setEntities(prev => [...prev, ...res.response]))
-      .catch(err => console.error(err));
+      .catch(err => console.error(err))
+      .finally(() => setIsLoading(false));
   }
 
   useEffect(() => fetchMoreEntities(SERVER_URL), []);
@@ -40,7 +43,7 @@ const App: React.FC = () => {
           className="more"
           onClick={() => fetchMoreEntities(SERVER_URL)}
         >
-          показать ещё
+          {isLoading ? 'идёт загрузка' : 'показать ещё'}
         </button>
       </main>
 

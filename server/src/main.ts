@@ -40,6 +40,7 @@ const streets = [
   'ул. Ленина',
 ];
 
+// Public photos hosted on google-photo
 const photos = [
   'https://lh3.googleusercontent.com/pw/ACtC-3dOdEEOOFU_ytiFcwFZjh8IhslGujN-j1N1cEax7jYO06-yvjEQpv3Mf_hD4AFcvcGtrmHyDjm5Mn6wqP86-vCoutsODSFNa8g9F7VN3gpcWFwnB_ZfMICnk-DoPtqFo68gDOeyx0nAhJT7hH3XIM8=w828-h546-no',
   'https://lh3.googleusercontent.com/pw/ACtC-3fCwaCrHPbTX50l7DIuX6DI1JlT8VXAn42LowPmg3ommBeoHBmMHb7KjQoYAYwB9V7T0-0OKVt3r4aKsxbQ78xtKfRQE0Oo3zrTtphJ1KSV5rDI8tAObFJD44xcRG8PbDC1DgM3hrr9pk3tFPUCQEw=w759-h500-no',
@@ -52,13 +53,12 @@ function getRandomIntegerBetween(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
-
 // Server code
 function doGet(event: GoogleAppsScriptEvent) {
 
   const data: T.Data = {
 
-    response: new Array(20)
+    response: new Array(10)
       .fill(null)
       .map(() => {
         const rooms = getRandomIntegerBetween(1, 5);
