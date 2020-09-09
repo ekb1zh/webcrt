@@ -1,0 +1,59 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+}
+
+.card>.images {
+  display: flex;
+  position: relative;
+}
+
+.card>.images>.photo {
+  width: 100%;
+  height: auto;
+  border-radius: 5px 5px 0 0;
+}
+
+.card>.images>.like {
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+  width: 15%;
+  padding-top: 15%;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(186 186 186 / 60%);
+  opacity: 0.8;
+}
+
+.card>.images>.like>svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 23%;
+  fill: white;
+}
+
+.card>.images>.like:hover {
+  opacity: 1;
+}
+
+.card>.images>.like:active {
+  opacity: 0.9;
+}
+
+.card>.info {
+  padding: 1.2em;
+}
+
+.card>.info>* {
+  margin-top: 0.4em;
+}
+
+.card>.info>:first-child {
+  margin-top: 0;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as T from '../../../middle/types';
-
+import './Card.css';
 
 const Card: React.FC<{ entity: T.Entity }> = (props) => {
 
