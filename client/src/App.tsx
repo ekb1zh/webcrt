@@ -25,11 +25,11 @@ const App: React.FC = () => {
 
   useEffect(
     () => fetchMoreEntities(SERVER_URL)
-  , []);
+    , []);
 
   const memoizedCards = useMemo(
     () => entities.map(entity => <Card entity={entity} />)
-  , [entities]);
+    , [entities]);
 
   return (
     <>

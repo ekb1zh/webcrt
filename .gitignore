@@ -1,6 +1,7 @@
 /client/node_modules
 /client/coverage
 /client/build
+/client/.ignore
 
 
 

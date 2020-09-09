@@ -1,6 +1,7 @@
 import React from 'react';
 import * as T from '../../../middle/types';
 
+
 const Card: React.FC<{ entity: T.Entity }> = (props) => {
 
   const {
@@ -42,7 +43,7 @@ const Card: React.FC<{ entity: T.Entity }> = (props) => {
         <p className="area">Площадь: {area} {unit}</p>
         <hr className="separator" />
         <h4 className="contacts-header">Контактная информация:</h4>
-        <p className="contacts-info">{firstName} {middleName} {lastName}</p>
+        <p className="contacts-info">{lastName} {firstName}</p>
       </div>
     </article>
   );
