@@ -1,25 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect, useMemo } from 'react';
 import './App.css';
+import * as T from '../../middle/types';
+import Card from './components/Card';
 
-function App() {
+const SERVER_URL = '';
+
+const App: React.FC = () => {
+
+  const [entities, setEntities] = useState([] as T.Data['response']);
+
+  function fetchMoreEntities<T extends T.Data = T.Data>(url: string) {
+    fetch(url)
+      .then<T>(res => {
+        if (res.ok) return res.json();
+        else throw new Error(`Fetch error with status: ${res.status}`)
+      })
+      .then(res => setEntities(prev => {
+        const newEntities = [...prev];
+        newEntities.push(...res.response);
+        return newEntities;
+      }))
+      .catch(err => console.error(err));
+  }
+
+  useEffect(
+    () => fetchMoreEntities(SERVER_URL)
+  , []);
+
+  const memoizedCards = useMemo(
+    () => entities.map(entity => <Card entity={entity} />)
+  , [entities]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        HEADER
       </header>
-    </div>
+
+      <main>
+        <div className="grid">
+          {memoizedCards}
+        </div>
+        <button
+          className="more"
+          onClick={() => fetchMoreEntities(SERVER_URL)}
+        >
+          показать ещё
+        </button>
+      </main>
+
+      <footer>
+        FOOTER
+      </footer>
+    </>
   );
 }
 
