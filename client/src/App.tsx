@@ -3,7 +3,7 @@ import './App.css';
 import * as T from '../../middle/types';
 import Card from './components/Card';
 
-const SERVER_URL = '';
+const SERVER_URL = 'https://script.google.com/macros/s/AKfycbw-DQLQ0Y-N0h2CW78njlIazYyKMTiyEVlZqARH315uTqqlKmc/exec';
 
 const App: React.FC = () => {
 
