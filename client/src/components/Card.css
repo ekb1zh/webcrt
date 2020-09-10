@@ -18,8 +18,8 @@
 
 .card>.images>.like {
   position: absolute;
-  bottom: 3%;
-  right: 3%;
+  bottom: 0.8em;
+  right: 0.8em;
   width: 15%;
   padding-top: 15%;
   border-radius: 50%;
